@@ -1,0 +1,6 @@
+<% @recipe.each do |recipe| %>
+<%= recipe.user.recipe_title %>
+<%= image_tag attachment_url(recipe, :image, :fill, 100, 100) %>
+<%= recipes.user.food %>
+<% @maiking.user.maiking_number%>
+<%= image_tag attachment_url(@maiking, :image, :fill, 100, 100) %>
