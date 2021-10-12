@@ -10,11 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_11_061226) do
+ActiveRecord::Schema.define(version: 2021_10_12_060307) do
 
   create_table "favolites", force: :cascade do |t|
     t.integer "user_id"
     t.integer "recipe_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "makeings", force: :cascade do |t|
+    t.string "makeing"
+    t.integer "recipe_id"
+    t.string "image_path"
+    t.integer "makeing_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

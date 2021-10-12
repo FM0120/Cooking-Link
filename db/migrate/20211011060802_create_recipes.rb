@@ -8,7 +8,7 @@ class CreateRecipes < ActiveRecord::Migration[5.2]
       t.string:food
       t.string:trick
       t.string:name
-      t.string:recipe_comment
+     
       
 
       t.timestamps
