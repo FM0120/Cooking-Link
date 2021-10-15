@@ -1,7 +1,19 @@
+<%= form_for @recipe do |form| %>
+  <%= form.attachment_field :image_path %>
+<% end %>
 <%= form_with model:recipe,local:true do |f| %>
 <div class="form-group">
 <%= f.label :レシピタイトル %>
 <%= f.text_field :recipe_title %>
 <div class="form-group">
-<%= f.label :(作り方) %>
+<%= f.label :(レシピ詳細) %>
 <%= f.text_area :recipe_detail %>
+<div class="form-group">
+<%= f.label :(コツまたはレシピについて) %>
+<%= f.text_area :trick %>
+<div class="form-group">
+<%= f.label :(材料) %>
+<%= f.text_area :food %>
+
+
+

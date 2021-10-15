@@ -1,0 +1,17 @@
+<%= form_with model: Recipe.new,local:true do |f| %>
+<div class="form-group">
+<%= f.label 'レシピタイトル' %>
+<%= f.text_field :recipe_title %>
+<div class="form-group">
+<%= f.label '(レシピ詳細)' %>
+<%= f.text_area :recipe_detail %>
+<div class="form-group">
+<%= f.label '(コツまたはレシピについて)' %>
+<%= f.text_area :trick %>
+<div class="form-group">
+<%= f.label '(材料)' %>
+<%= f.text_area :food %>
+<%= f.submit '登録' %>
+<% end %>
+
+

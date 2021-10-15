@@ -1,9 +1,14 @@
 <h1>投稿一覧</h1>
 <h2>レシピ</h2>
-<%= @recipe.user.recipe_title %>
 <h3>製作者</h3>
-<% @recipe.each do |recipe| %>
+<% @recipes.each do |recipe| %>
+<%= link_to recipe_path (recipe) do %>
+<%= recipe.user.recipe_title %>
+<% end %>
 <%= image_tag attachment_url(recipe, :image, :fill, 100, 100) %>
 <%= recipe.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
 <%= recipe.user.name %>
-<%= link_to recipe_title (recipe.user) do %>
+<%= link_to 'レシピを作成する', edit_recipe_path(recipe), class: "btn btn-sm btn-success edit_recipe_#{recipe.id}" %>
+<% end %>
+<%= link_to 'レシピを作成する', new_recipe_path() %>
+
