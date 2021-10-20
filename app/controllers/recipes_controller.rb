@@ -1,4 +1,5 @@
 class RecipesController < ApplicationController
+
   def index
     @recipes = Recipe.all
     @recipe = Recipe.new
@@ -10,6 +11,8 @@ class RecipesController < ApplicationController
     @post_comment = Post_Comment.new
     @recipes = Recipe.new
     @recipes = @user.recipes
+    @postcomments = @recipe.comments
+    @postcomment = Postcomment.new
   end
 
   def edit
@@ -35,13 +38,14 @@ class RecipesController < ApplicationController
   end
 
   def new
-    @recipe = Recipe.find(params[:id])
     @recipe = Recipe.new
+
   end
+
   private
 
   def recipe_params
-    params.require(:recipe).permit(:recipe_title, :recipe_detail, :trick,:food)
+     params.require(:recipe).permit(:recipe_title, :recipe_detail, :trick, :food, :image)
   end
 
 end

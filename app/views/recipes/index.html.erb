@@ -3,12 +3,12 @@
 <h3>製作者</h3>
 <% @recipes.each do |recipe| %>
 <%= link_to recipe_path (recipe) do %>
-<%= recipe.user.recipe_title %>
+<%= recipe.recipe_title %>
 <% end %>
-<%= image_tag attachment_url(recipe, :image, :fill, 100, 100) %>
+<%= attachment_image_tag recipe, :image, :fill, 100, 100 %>
 <%= recipe.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
 <%= recipe.user.name %>
 <%= link_to 'レシピを作成する', edit_recipe_path(recipe), class: "btn btn-sm btn-success edit_recipe_#{recipe.id}" %>
 <% end %>
-<%= link_to 'レシピを作成する', new_recipe_path() %>
+<%= link_to 'レシピを作成する', new_recipe_path %>
 

@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2021_10_12_060307) do
   create_table "makeings", force: :cascade do |t|
     t.string "makeing"
     t.integer "recipe_id"
-    t.string "image_path"
+    t.string "image_id"
     t.integer "makeing_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -40,9 +40,10 @@ ActiveRecord::Schema.define(version: 2021_10_12_060307) do
     t.string "user_id"
     t.string "recipe_detail"
     t.string "recipe_title"
-    t.string "image_path"
+    t.string "image_id"
     t.string "food"
     t.string "trick"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
