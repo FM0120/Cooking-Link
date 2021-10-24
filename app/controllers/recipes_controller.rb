@@ -8,22 +8,28 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
-    @post_comment = Post_Comment.new
+    @postcomment = PostComment.new
     @recipes = Recipe.new
-    @recipes = @user.recipes
-    @postcomments = @recipe.comments
-    @postcomment = Postcomment.new
+    # @recipes = @user.recipes
+    # @postcomments = @recipe.comments
   end
 
   def edit
     @recipe = Recipe.find(params[:id])
     @user = @recipe.user
+    unless @user == current_user
+      redirect_to recipes_path
+    end
   end
 
   def create
-    @recipe = Recipe.new(params[:id])
+    @recipe = Recipe.new(recipe_params)
     @recipe.user_id = current_user.id
-    @recipe.save
+    if @recipe.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def destroy
@@ -39,7 +45,7 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
-
+    #@makings = @recipe.makings.build ##親モデル.子モデル.buildで子モデルのインスタンス作成
   end
 
   private

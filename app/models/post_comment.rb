@@ -1,4 +1,4 @@
 class PostComment < ApplicationRecord
-  belongs_to:user
-  has_many :post_comments
+  belongs_to :user
+  belongs_to :recipe
 end

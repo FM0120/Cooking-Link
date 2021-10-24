@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_12_060307) do
+ActiveRecord::Schema.define(version: 2021_10_23_091927) do
 
   create_table "favolites", force: :cascade do |t|
     t.integer "user_id"
@@ -19,11 +19,11 @@ ActiveRecord::Schema.define(version: 2021_10_12_060307) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "makeings", force: :cascade do |t|
-    t.string "makeing"
+  create_table "makings", force: :cascade do |t|
+    t.string "making_detail"
     t.integer "recipe_id"
     t.string "image_id"
-    t.integer "makeing_number"
+    t.integer "making_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 2021_10_12_060307) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "name"
+    t.string "profile_image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

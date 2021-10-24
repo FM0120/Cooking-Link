@@ -4,7 +4,7 @@ class CreatePostComments < ActiveRecord::Migration[5.2]
       t.integer:user_id
       t.integer:recipe_id
       t.string:comment
-      
+
       t.timestamps
     end
   end
