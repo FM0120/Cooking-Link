@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
    root to: 'recipes#index'
     resources :users,only:[:index,:edit,:create,:destroy,:update]
+    resources :homes,only:[:top]
     resources :recipes,only: [:index,:new,:show,:edit,:create,:update,:destroy] do
      resources :makings,only: [:edit,:create,:destroy,:update]
      resources :post_comments, only: [:new, :create, :index, :show, :destroy]

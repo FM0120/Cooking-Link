@@ -26,7 +26,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
     @recipe.user_id = current_user.id
     if @recipe.save
-      redirect_to root_path
+      redirect_to recipes_path, notice: "You have created recipe successfully."
     else
       render :new
     end
@@ -40,8 +40,13 @@ class RecipesController < ApplicationController
   def update
     @recipe = Recipe.find(params)
     @recipe.update(recipe_params)
-
+    if @book.update(book_params)
+      redirect_to recipe_path(@recipe), notice: "You have updated recipe successfully."
+    else
+      render "edit"
+    end
   end
+
 
   def new
     @recipe = Recipe.new
@@ -53,5 +58,4 @@ class RecipesController < ApplicationController
   def recipe_params
      params.require(:recipe).permit(:recipe_title, :recipe_detail, :trick, :food, :image)
   end
-
 end

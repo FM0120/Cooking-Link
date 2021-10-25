@@ -5,6 +5,7 @@
 <%# @recipe.maiking_number %>
 <%#= attachment_image_tag recipe, :image, size: "50x50" %>
 <% @recipe.recipe_detail%>
+<%= render 'favorites/favorite', recipe: @re %>
 <%= link_to 'レシピを編集する', edit_recipe_path(@recipe), class: "btn btn-sm btn-success edit_recipe_#{@recipe.id}" %>
 <div>
   <p>コメント件数：<%= @recipe.post_comments.count %></p>
