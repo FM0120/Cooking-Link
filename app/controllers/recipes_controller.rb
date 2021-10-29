@@ -34,7 +34,8 @@ class RecipesController < ApplicationController
 
   def destroy
     @recipe = Recipe.find(params[:id])
-    @recipe.save
+    @recipe.destroy
+    redirect_to recipes_path
   end
 
   def update
@@ -50,12 +51,12 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
-    #@makings = @recipe.makings.build ##親モデル.子モデル.buildで子モデルのインスタンス作成
+    @makings = @recipe.makings.build ##親モデル.子モデル.buildで子モデルのインスタンス作成
   end
 
   private
 
   def recipe_params
-     params.require(:recipe).permit(:recipe_title, :recipe_detail, :trick, :food, :image)
+     params.require(:recipe).permit(:recipe_title, :recipe_detail, :trick, :food, :image,makings_attributes: [:making_detail,:image])
   end
 end
