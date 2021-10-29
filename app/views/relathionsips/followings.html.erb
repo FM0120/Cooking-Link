@@ -1,0 +1,19 @@
+<h1>Follower Users</h1>
+<tr>
+ <% if @users.exists? %>
+  <th>name</th>
+  <th></th>
+</tr>
+<tbody>
+ <% @users.each do |user| %>
+ <tr>
+  <td><%= user.name %></td>
+  <td>フォロー数: <%= user.followings.count %></td>
+  <td>フォロワー数: <%= user.followers.count %></td>
+ <tr>
+  <%= link_to "Back", recipes_path %>
+ <% end %>
+</tbody>
+ <% else %>
+  <th>ユーザーはいません</th>
+<% end %>
