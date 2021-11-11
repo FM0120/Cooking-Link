@@ -21,6 +21,7 @@ class UsersController < ApplicationController
 
   def update
      @user = User.find(params[:id])
+     binding.pry
     if @user.update(user_params)
       redirect_to recipes_path, notice: "You have updated user successfully."
     else
@@ -30,6 +31,6 @@ class UsersController < ApplicationController
   private
 
    def user_params
-    params.require(:user).permit(:name, :profile_image_id)
+    params.require(:user).permit(:name, :profile_image)
    end
 end

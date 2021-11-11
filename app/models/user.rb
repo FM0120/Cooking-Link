@@ -13,7 +13,7 @@ class User < ApplicationRecord
   has_many :passive_relathionships,class_name: "Relathionship", foreign_key: "followed_id",dependent: :destroy
   has_many :followings, through: :relathionships,source: :followed
   has_many :followers, through: :passive_relathionships,source: :follower
-  attachment :image
+  attachment :profile_image
   # attachment :profile_image
   def following?(user)
   followings.include?(user)
