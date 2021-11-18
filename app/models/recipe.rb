@@ -3,31 +3,31 @@ class Recipe < ApplicationRecord
   has_many :post_comments, dependent: :destroy
   has_many :makings, dependent: :destroy
   has_many :favolites, dependent: :destroy
-   
+
   accepts_nested_attributes_for :makings, allow_destroy: true
   attachment :image
-  
+
   validates :recipe_title,:image,:food, presence: true
-  validate :make_check
-   
+  # validate :make_check
+
   def favolited_by?(user)
     Favolite.where(user_id: user.id).exists?
   end
-  
+
   def self.search(search, word)
     if search == "forward_match"
-      @recipe = Recipe.where("title LIKE?","#{word}%")
+      @recipe = Recipe.where("recipe_title LIKE?","#{word}%")
     elsif search == "backward_match"
-      @recipe = Recipe.where("title LIKE?","%#{word}")
+      @recipe = Recipe.where("recipe_title LIKE?","%#{word}")
     elsif search == "perfect_match"
       @recipe = Recipe.where("#{word}")
     elsif search == "partial_match"
-      @recipe = Recipe.where("title LIKE?","%#{word}%")
+      @recipe = Recipe.where("recipe_title LIKE?","%#{word}%")
     else
       @recipe = Recipe.all
     end
   end
-  
+
   private
   def make_check
     if self.makings.present?

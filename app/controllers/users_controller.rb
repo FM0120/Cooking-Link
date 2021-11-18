@@ -3,6 +3,7 @@ class UsersController < ApplicationController
     @user = current_user
     @users = User.all
     @recipe = Recipe.new
+    @recipes = current_user.recipes
   end
 
   def edit
@@ -21,7 +22,6 @@ class UsersController < ApplicationController
 
   def update
      @user = User.find(params[:id])
-     binding.pry
     if @user.update(user_params)
       redirect_to recipes_path, notice: "You have updated user successfully."
     else
