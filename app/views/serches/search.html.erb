@@ -3,16 +3,17 @@
 　 <h1>Cooking search for</h1>
   <thead>
     <tr>
-      <% @recipe.each do |book| %>
-        <h2><%= link_to recipe.recipe_title,recipe_path(recipe) %></h2>
-        <p><%= attachment_image_tag recipe, :image, size: "130x130" %></p>
-        <td>ユーザー</td>
-        <td><%= recipe.user.name %></td>
-    <> 
+     <% @recipe.each do |recipe| %>
+       <h2><%= link_to recipe.recipe_title,recipe_path(recipe) %></h2>
+       <p><%= attachment_image_tag recipe, :image, size: "130x130" %></p>
+       <td>ユーザー</td>
+       <td><%= recipe.user.name %></td>
+    </tr>
+    <% end %>
   </thead>
-        
-  <% else %>
-   <h1>User search for</h1>
+
+ <% else %>
+  <h1>User search for</h1>
   <thead>
      <tr>
       <th>image</th>

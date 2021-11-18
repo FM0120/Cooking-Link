@@ -3,3 +3,9 @@
   <%= f.attachment_field :image %>
   <%= link_to_remove_association "削除", f, class: "btn btn-secondary btn-block" %>
 </div>
+<% if @recipe.errors.any? %>
+  <%= @recipe.errors.count %>件のエラーが発生しました
+  <% @recipe.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
