@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   # has_many :users, dependent: :destroy
   has_many :favolites, dependent: :destroy
+  has_many :favolites_recipe,through: :favolites, source: :recipe
   has_many :recipes, dependent: :destroy
   has_many :post_comments, dependent: :destroy
   has_many :makeings, dependent: :destroy
@@ -24,7 +25,7 @@ class User < ApplicationRecord
   def unfollow(user_id)
   relathionships.find_by(followed_id: user_id).destroy
   end
-  
+
   def self.search(search,word)
     case search
       when "forward_match" then where("name LIKE?","#{word}%")
@@ -34,8 +35,8 @@ class User < ApplicationRecord
       else all
     end
   end
-  
+
   validates :name, presence: true ,length: { minimum: 2,maximum:20 }
   validates :name, uniqueness: true
-  
+
 end
