@@ -1,8 +1,9 @@
 class Recipe < ApplicationRecord
   belongs_to :user
+  has_many :favolites, dependent: :destroy
+  has_many :favolites_users, through: :favolites, source: :user
   has_many :post_comments, dependent: :destroy
   has_many :makings, dependent: :destroy
-  has_many :favolites, dependent: :destroy
 
   accepts_nested_attributes_for :makings, allow_destroy: true
   attachment :image

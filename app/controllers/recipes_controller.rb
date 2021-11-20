@@ -6,12 +6,12 @@ class RecipesController < ApplicationController
     @user = current_user
   end
 
-  # def rank
-  #   @recipes = Recipe.all
-  #   @recipe = Recipe.new
-  #   @user = current_user
-  #   @recipes = Recipes.includes(:favolites_users).sort {|a,b| b.favolites_users.size <=> a.favolites_users.size}
-  # end
+  def rank
+    @recipes = Recipe.all
+    @recipe = Recipe.new
+    @user = current_user
+    @recipes = Recipe.includes(:favolites_users).sort {|a,b| b.favolites_users.size <=> a.favolites_users.size}
+  end
 
 
   def show

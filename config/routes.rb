@@ -10,6 +10,12 @@ Rails.application.routes.draw do
       resources :recipes,only: [:index]
     end
 
+  resources :recipes do
+    collection do
+      get 'rank'
+    end
+  end
+
     resources :homes,only:[:top]
     resources :recipes,only: [:index,:new,:show,:edit,:create,:update,:destroy] do
       resources :makings,only: [:edit,:create,:destroy,:update]
