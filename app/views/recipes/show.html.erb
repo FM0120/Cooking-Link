@@ -2,54 +2,54 @@
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       <thead>
-        <h1><%= @recipe.recipe_title %></h1>
-      </thead>
-        <p><%= attachment_image_tag @recipe, :image, size: "280x200" %></p>
-          <tbody>
-            <% @recipe.makings.each do |making| %>
-              <tr>
-                <p><%= attachment_image_tag making, :image, size: "130x130" %></p>
-                <td><%= making.making_detail %></td>
-              </tr>
-            <% end %>
-              <tr>
-                 <h5>材料</h5>
-                    <td><%= @recipe.food %></td>
-                    
-                  <div class="row justify-content-end">
-    
-                    <h5>レシピ詳細</h5>
-                      <td><%= @recipe.recipe_detail %></td>
-                  </div>
-
-                  <h5>ユーザー</h5>
-                    <%= @recipe.user.name %>
-                    <%= render 'relathionsips/rilathionsip',user: @recipe.user %>
-
-                  <div id="recipelike">
-                    <%= render 'favolites/favolite', recipe: @recipe %>
+        <h1>
+          <%= @recipe.recipe_title %>
+          <span id="recipelike"><%= render 'favolites/favolite', recipe: @recipe %></span>
+        </h1>
+        </thead>
+          <p><%= attachment_image_tag @recipe, :image, size: "280x200" %></p>
+            <tbody>
+              <% @recipe.makings.each do |making| %>
+                <tr>
+                  <div class="box-image">
+                    <div><%= attachment_image_tag making, :image, size: "130x130" %></div>
+                    <div class="box-image-text"><%= making.making_detail %></div>
                   </div>
                 </tr>
-                  <tbody>
-                    <div>
-                      <p>コメント件数：<%= @recipe.post_comments.count %></p>
-                        <% @recipe.post_comments.each do |post_comment| %>
-                        <%= post_comment.user.name %>
-                        <%= post_comment.comment %>
+              <% end %>
+                <tr>
+                  <p></p>
+                  <h5>材料</h5>
+                    <td><%= @recipe.food %></td>
+                  <p></p>
+                  <h5>レシピ詳細</h5>
+                    <td><%= @recipe.recipe_detail %></td>
+                  <p></p>
+                    <h5>ユーザー</h5>
+                      <%= attachment_image_tag(@user, :profile_image, size: "100x100", fallback: "no_image.jpg") %>
+                      <%= @recipe.user.name %>
+                      <p><%= render 'relathionsips/rilathionsip',user: @recipe.user %><p>
+                  </tr>
+                    <tbody>
+                      <div>
+                        <p>コメント件数：<%= @recipe.post_comments.count %></p>
+                          <% @recipe.post_comments.each do |post_comment| %>
+                          <%= post_comment.user.name %>
+                          <%= post_comment.comment %>
+                          <% end %>
+                      </div>
+  
+                      <div>
+                        <% if current_user != @recipe.user %>
+                        <%= form_with(model:[@recipe, @postcomment], local: true) do |f| %>
+                          <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
+                          <%= f.submit "送信する" %>
+                          <% end %>
                         <% end %>
-                    </div>
-        
-                    <div>
-                      <% if current_user != @recipe.user %>
-                      <%= form_with(model:[@recipe, @postcomment], local: true) do |f| %>
-                        <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
-                        <%= f.submit "送信する" %>
-                        <% end %>
-                      <% end %>
-                    </div>  
-                  </tbody>
-      <%= link_to 'レシピを編集する', edit_recipe_path(@recipe), class: "btn btn-sm btn-success edit_recipe_#{@recipe.id}" %>
-      <%= link_to 'レシピを削除する', recipe_path(@recipe), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_recipe_#{@recipe.id}"%>
+                      </div>
+                    </tbody>
+        <%= link_to 'レシピを編集する', edit_recipe_path(@recipe), class: "fas fa-edit btn btn-sm btn-success edit_recipe_#{@recipe.id}" %>
+        <%= link_to 'レシピを削除する', recipe_path(@recipe), method: :delete, data: { confirm: '本当に消しますか？' }, class: "fas fa-trash-alt btn btn-sm btn-danger destroy_recipe_#{@recipe.id}" %>
+      </div>
     </div>
   </div>
-</div>
