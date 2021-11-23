@@ -78,3 +78,4 @@ group :production do
 end
 gem 'cocoon'
 gem "jquery-rails"
+gem 'font-awesome-sass', '~> 5.13'

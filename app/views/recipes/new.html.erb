@@ -3,6 +3,7 @@
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       <%= form_with model: @recipe, local:true do |f| %>
         <div class="form-group">
+          <p></p>
           <%= f.text_field :recipe_title, class: "form-control", placeholder: 'レシピタイトル' %>
         </div>
 
@@ -19,7 +20,7 @@
 
         <div class="form-group">
           <p><%= f.label '材料' %><p>
-          <%= f.text_area :food, class: "form-control", placeholder: '例　塩　〜g'  %>
+          <%= f.text_area :food, class: "form-control", placeholder: '例  塩  〜g'  %>
         </div>
         <div class="making-post">
           <div class="making">
