@@ -28,3 +28,56 @@
    }
 }
 
+.profile_box{
+    padding: 5px 1em;
+    margin: 1em auto;
+    color: #00BCD4;
+    background: #e4fcff;
+    border-top: solid 6px #1dc1d6;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);
+}
+
+.search_image{
+    margin: 10px;
+}
+
+.recipe_detail_image{
+    margin: 2em 0;
+}
+
+.detail_heading{
+    font-size: 1.2em;
+    background: #5fb3f5;
+    padding: 4px;
+    text-align: center;
+    color: #FFF;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+
+.detail_text{
+  background: #dcefff;
+  overflow-wrap: break-word;
+
+}
+
+.food_box{
+    padding: 0.5em 1em;
+    margin: auto;
+    color: #474747;
+    background: whitesmoke;
+    border-left: double 7px #4ec4d3;
+    border-right: double 7px #4ec4d3;
+    overflow-wrap: normal;
+}
+
+.food_box td{
+    margin: 0;
+    padding: 0;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+.head_text{
+  font-family: 'Lobster', cursive;
+}
