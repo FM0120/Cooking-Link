@@ -5,7 +5,11 @@
         <%= @recipe.recipe_title %>
         <span id="recipelike"><%= render 'favolites/favolite', recipe: @recipe %></span>
       </h1>
-        <p><%= attachment_image_tag @recipe, :image, size: "280x200" %></p>
+      　<%= attachment_image_tag @recipe, :image, size: "400x250" %>
+        <div class="recipe_detail_image">
+            <div class="detail_heading"><h5>レシピ詳細</h5></div>
+            <div class="detail_text"><%= @recipe.recipe_detail %></div>
+        </div>
           <% @recipe.makings.each do |making| %>
             <div class="box-image">
               <div><%= attachment_image_tag making, :image, size: "130x130" %></div>
@@ -16,10 +20,10 @@
           <div class="food_box">
             <%= @recipe.food %>
           </div>
-          <div class="recipe_detail_image">
-            <div class="detail_heading"><h5>レシピ詳細</h5></div>
-            <div class="detail_text"><%= @recipe.recipe_detail %></div>
-          </div>
+          <h5>コツやポイント</h5>
+          <p class="food_box">
+            <%= @recipe.trick %>
+          </p>
           <h5>ユーザー</h5>
           <%= attachment_image_tag(@user, :profile_image, size: "100x100", fallback: "no_image.jpg") %>
           <%= @recipe.user.name %>

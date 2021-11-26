@@ -81,3 +81,44 @@
 .head_text{
   font-family: 'Lobster', cursive;
 }
+
+.myprofile_box{
+    padding: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 8em
+}
+
+.profile_edit{
+    margin-left: 25px;
+    margin-right: auto;
+}
+
+.profile_edit2{
+    margin-left: 50px;
+    margin-right: auto;
+}
+
+.main-kv{
+    background-image: image-url("top_image.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #fff;
+    height: calc(100vh - 62px - 70px);
+
+}
+
+footer {
+    height: 70px;
+}
+
+.bg-white-50 {
+    background-color: rgba(255, 255, 255, .5);
+}
+
+.profile_text{
+    margin-left: auto;
+    margin-right: auto;
+}

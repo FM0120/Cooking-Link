@@ -3,7 +3,6 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  # has_many :users, dependent: :destroy
   has_many :favolites, dependent: :destroy
   has_many :favolites_recipe,through: :favolites, source: :recipe
   has_many :recipes, dependent: :destroy
@@ -15,7 +14,6 @@ class User < ApplicationRecord
   has_many :followings, through: :relathionships,source: :followed
   has_many :followers, through: :passive_relathionships,source: :follower
   attachment :profile_image
-  # attachment :profile_image
   def following?(user)
   followings.include?(user)
   end

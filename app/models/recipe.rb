@@ -9,7 +9,6 @@ class Recipe < ApplicationRecord
   attachment :image
 
   validates :recipe_title,:image,:food, presence: true
-  # validate :make_check
 
   def favolited_by?(user)
     Favolite.where(user_id: user.id).exists?
