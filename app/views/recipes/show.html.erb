@@ -25,7 +25,7 @@
             <%= @recipe.trick %>
           </p>
           <h5>ユーザー</h5>
-          <%= attachment_image_tag(@user, :profile_image, size: "100x100", fallback: "no_image.jpg") %>
+          <%= attachment_image_tag(@recipe.user, :profile_image, size: "100x100", fallback: "no_image.jpg") %>
           <%= @recipe.user.name %>
           <p><%= render 'relathionsips/rilathionsip',user: @recipe.user %><p>
           <div>
