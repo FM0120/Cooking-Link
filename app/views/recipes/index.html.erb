@@ -35,7 +35,7 @@
                 <%= attachment_image_tag recipe, :image, size: "130x130" %>
               </td>
               <td><h4><%= link_to recipe.recipe_title,recipe_path(recipe) %></h4></td>
-              <td><%= recipe.user.name %><p class="profile_icon"><%= attachment_image_tag(@user, :profile_image, size: "100x100", fallback: "no_image.jpg") %></p></td>
+              <td><%= recipe.user.name %><p class="profile_icon"><%= attachment_image_tag(recipe.user, :profile_image, size: "100x100", fallback: "no_image.jpg") %></p></td>
               <% if current_user.id == @recipe.user_id %>
               <td><%= link_to 'レシピを編集', edit_recipe_path(@recipes) %></td>
             </tr>
