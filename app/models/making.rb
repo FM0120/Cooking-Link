@@ -1,5 +1,5 @@
 class Making < ApplicationRecord
-  belongs_to:recipe
+  belongs_to :recipe
   attachment :image
-  validates :making_detail,presence: true
+  validates :making_detail, presence: true
 end

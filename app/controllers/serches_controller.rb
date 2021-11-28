@@ -4,9 +4,9 @@ class SerchesController < ApplicationController
     search = params[:search]
     word = params[:word]
     if @range == '1'
-    @user = User.search(search,word)
+      @user = User.search(search, word)
     else
-    @recipe = Recipe.search(search,word)
+      @recipe = Recipe.search(search, word)
     end
   end
 end

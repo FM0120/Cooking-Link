@@ -1,3 +1,2 @@
 class MakingsController < ApplicationController
- 
 end
