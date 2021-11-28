@@ -38,14 +38,14 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  #gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  #gem "pry-rails"
+  # gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # gem "pry-rails"
   gem "byebug"
   gem "pry-rails"
   gem "pry-byebug"
   gem "pry-doc"
   gem "pry-stack_explorer"
-  #gem "pry-nav"
+  # gem "pry-nav"
 end
 
 group :development do
@@ -73,9 +73,10 @@ gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem 'devise'
 gem 'dotenv-rails'
+gem 'rubocop-airbnb'
 group :production do
   gem 'mysql2'
 end
 gem 'cocoon'
-gem "jquery-rails"
+gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.13'

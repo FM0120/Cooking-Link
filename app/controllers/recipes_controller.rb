@@ -1,5 +1,4 @@
 class RecipesController < ApplicationController
-
   def index
     @recipes = Recipe.all
     @recipe = Recipe.new
@@ -10,9 +9,8 @@ class RecipesController < ApplicationController
     @recipes = Recipe.all
     @recipe = Recipe.new
     @user = current_user
-    @recipes = Recipe.includes(:favolites_users).sort {|a,b| b.favolites_users.size <=> a.favolites_users.size}
+    @recipes = Recipe.includes(:favolites_users).sort { |a, b| b.favolites_users.size <=> a.favolites_users.size }
   end
-
 
   def show
     @recipe = Recipe.find(params[:id])
@@ -56,15 +54,14 @@ class RecipesController < ApplicationController
     end
   end
 
-
   def new
     @recipe = Recipe.new
-    @makings = @recipe.makings.build ##親モデル.子モデル.buildで子モデルのインスタンス作成
+    @makings = @recipe.makings.build # #親モデル.子モデル.buildで子モデルのインスタンス作成
   end
 
   private
 
   def recipe_params
-     params.require(:recipe).permit(:recipe_title, :recipe_detail, :trick, :food, :image,makings_attributes: [:making_detail,:image,:_destroy])
+    params.require(:recipe).permit(:recipe_title, :recipe_detail, :trick, :food, :image, makings_attributes: [:making_detail, :image, :_destroy])
   end
 end
