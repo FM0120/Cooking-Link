@@ -45,7 +45,7 @@ class RecipesController < ApplicationController
   end
 
   def update
-    @recipe = Recipe.find(params)
+    @recipe = Recipe.find(params[:id])
     @recipe.update(recipe_params)
     if @book.update(book_params)
       redirect_to recipe_path(@recipe), notice: "You have updated recipe successfully."
