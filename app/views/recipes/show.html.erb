@@ -18,7 +18,7 @@
           <% end %>
           <h5>材料</h5>
           <div class="food_box">
-            <%= @recipe.food %>
+            <%=safe_join(@recipe.food.split("\n"),tag(:br))%>
           </div>
           <h5>コツやポイント</h5>
           <p class="food_box">

@@ -20,7 +20,7 @@ class Recipe < ApplicationRecord
     elsif search == "backward_match"
       @recipe = Recipe.where("recipe_title LIKE?", "%#{word}")
     elsif search == "perfect_match"
-      @recipe = Recipe.where("#{word}")
+      @recipe = Recipe.where("recipe_title LIKE?","#{word}")
     elsif search == "partial_match"
       @recipe = Recipe.where("recipe_title LIKE?", "%#{word}%")
     else

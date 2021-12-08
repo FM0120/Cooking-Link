@@ -1,16 +1,22 @@
 <table class="table table-hover table-inverse">
   <% if @range == '2' %>
-   <h1>Cooking search for</h1>
+  <h1>Cooking search for</h1>
   <thead>
     <tr>
-     <% @recipe.each do |recipe| %>
-       <h2><%= link_to recipe.recipe_title,recipe_path(recipe) %></h2>
-       <p><%= attachment_image_tag recipe, :image, size: "130x130" %></p>
-       <td>ユーザー</td>
-       <td><%= recipe.user.name %></td>
+       <th>レシピタイトル</th>
+       <th>ユーザー</th>
+       <th colspan="3"></th>
     </tr>
-    <% end %>
   </thead>
+  <tbody>
+   <tr>
+    <% @recipe.each do |recipe| %>
+    <td><h3><%= link_to recipe.recipe_title,recipe_path(recipe) %><h3></td>
+    <td><%= attachment_image_tag recipe, :image, size: "130x130" %></td>
+    <td><%= recipe.user.name %></td>
+   </tr>
+  </tbody>
+   <% end %>
 
  <% else %>
   <h1>User search for</h1>
@@ -24,9 +30,9 @@
    <tbody>
     <% @user.each do |user| %>
      <tr>
-      <td><%#= attachment_image_tag(user, :profile_image, :fill, 50, 50, fallback: "no-image-mini.jpg") %></td>
+      <td><%= attachment_image_tag(user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg") %></td>
       <td><%= user.name%></td>
-      <td><%#= link_to "Show", user, class: "user_#{user.id}" %></td>
+      <td><%= link_to "Show", user, class: "user_#{user.id}" %></td>
      </tr>
     <% end %>
    </tbody>
