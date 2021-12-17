@@ -33,6 +33,7 @@ https://docs.google.com/spreadsheets/d/1kNXltsif2Kx1gSxz4QmyK1UZBnY8136up_C4HckR
 JSライブラリ：jQuery
 IDE：Cloud9
 bootstrap
+cocoon
 Rubocop(-airbnb)
 devise
 pry-byebug
