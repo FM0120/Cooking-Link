@@ -17,6 +17,7 @@
 
 設計書
 https://drive.google.com/file/d/1G-NbfyKiyDd5XnxoTWmvzgovIzPbPQ48/view?usp=sharing
+アプリケーション詳細設計
 https://docs.google.com/spreadsheets/d/11t3yk2H3YXJz1WGBUSlGGRdguPbH2ONuBAk5NQk1j2w/edit?usp=sharing
 
 チャレンジ要素一覧
